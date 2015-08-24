@@ -10,6 +10,12 @@ require('launchy')
 
 RSpec.configure do |config|
   config.after(:each) do
-    #code here
+    Employee.all().each() do |employee|
+      employee.destroy()
+    end
+
+    Division.all().each() do |division|
+      division.destroy()
+    end
   end
 end
