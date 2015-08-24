@@ -48,3 +48,10 @@ post('/employees/add') do
     @employees = Employee.all()
     erb(:employees)
 end
+
+delete('/employees/delete') do
+  employee = Employee.find(params.fetch('employee_id').to_i())
+  employee.destroy()
+  @employees = Employee.all()
+  erb(:employees)
+end

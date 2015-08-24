@@ -10,6 +10,12 @@
 
 <% @employees.each() do |employee| %>
 
-<li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
+<li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></a>
+<form id="form_id" action="/employees/delete" method="post">
+  <input type="hidden" name="employee_id" value="<%= employee.id() %>">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</form>
+</li>
 
 <% end %>
