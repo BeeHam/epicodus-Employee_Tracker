@@ -55,3 +55,10 @@ delete('/employees/delete') do
   @employees = Employee.all()
   erb(:employees)
 end
+
+delete('/divisions/delete') do
+  division = Division.find(params.fetch('division_id').to_i())
+  division.destroy()
+  @divisions = Division.all()
+  erb(:divisions)
+end

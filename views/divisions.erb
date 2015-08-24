@@ -10,6 +10,12 @@
 
 <% @divisions.each() do |division| %>
 
-<li><%= division.name() %> <a href="/division/<%= division.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
+<li><%= division.name() %> <a href="/division/<%= division.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+  <form id="form_id" action="/divisions/delete" method="post">
+    <input type="hidden" name="division_id" value="<%= division.id() %>">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </form>
+</li>
 
 <% end %>
