@@ -62,3 +62,15 @@ delete('/divisions/delete') do
   @divisions = Division.all()
   erb(:divisions)
 end
+
+get('/employees/:id/edit') do
+  @employee = Employee.find(params.fetch('id').to_i())
+  erb(:employee)
+end
+
+patch('/employee/add') do
+  @employee = Employee.find(params.fetch('employee_id').to_i)
+  name = params.fetch('name')
+  @employee.update({:name => name})
+  erb(:employee)
+end

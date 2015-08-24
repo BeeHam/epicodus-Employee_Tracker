@@ -1,0 +1,13 @@
+<h2><%= @employee.name() %></h2>
+
+<form class="form-inline" action="/employee/add" method="post">
+  <input type="hidden" name="employee_id" value="<%= @employee.id() %>">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="name">Update Name</label>
+    <input id="name" type="text" name="name" placeholder="<%= @employee.name() %>" class="form-control">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+</form>
+
+<a href="/employees">Return to Employee List</a>
