@@ -18,4 +18,13 @@ describe('The Employee Tracker app', {:type => :feature}) do
       expect(page).to have_content('Employees')
     end
   end
+
+  describe('the division form path') do
+    it('will post new divisions to division list') do
+      visit('/divisions')
+      fill_in("name", :with => "Art")
+      click_button("Add")
+      expect(page).to have_content("Art")
+    end
+  end
 end

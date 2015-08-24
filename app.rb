@@ -20,3 +20,10 @@ get('/divisions') do
   @divisions = Division.all()
   erb(:divisions)
 end
+
+post('/divisions/add') do
+  name = params.fetch("name")
+  Division.create({:name => name})
+  @divisions = Division.all()
+  erb(:divisions)
+end
