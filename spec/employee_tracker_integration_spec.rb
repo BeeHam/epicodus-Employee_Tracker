@@ -26,5 +26,13 @@ describe('The Employee Tracker app', {:type => :feature}) do
       click_button("Add")
       expect(page).to have_content("Art")
     end
+
+    it('will navigate to the division edit page') do
+      visit('/divisions')
+      fill_in("name", :with => "Art")
+      click_button("Add")
+      find.('.glyphicon glyphicon-edit').click
+      expect(page).to have_content('Art Division')
+    end
   end
 end

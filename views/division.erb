@@ -1,0 +1,26 @@
+<h2><%= @division.name() %> Division</h2>
+
+<form class="form-inline" action="/division/add" method="post">
+  <input type="hidden" name="division_id" value="<%= @division.id() %>">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="name">Update Division</label>
+    <input id="name" type="text" name="name" placeholder="Name" class="form-control">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+</form>
+<br>
+<form class="form-inline" action="/division/:id" method="post">
+  <input type="hidden" name="division_id" value="<%= @division.id() %>">
+  <div class="form-group">
+    <label for="name">Add Employee</label>
+    <select id="employee-select" name="employee-select" type="text" class="form-control">
+      <% @employees.each() do |employee| %>
+        <option value="<%= employee.id %>"><%= employee.name %></option>
+      <% end %>
+    </select>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+
+<a href="/divisions">Return to Division List</a>

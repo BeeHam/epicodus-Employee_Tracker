@@ -1,7 +1,15 @@
 <h1>Employees</h1>
 
+<form class="form-inline" action="/employees/add" method="post">
+  <div class="form-group">
+    <label for="name">Add Employee</label>
+    <input id="name" type="text" name="name" placeholder="Name" class="form-control">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+
 <% @employees.each() do |employee| %>
 
-<li><%= employee.name() %><a href="/employees/<%= employee.id() %>/edit">Update Employee Info</a></li>
+<li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
 
 <% end %>

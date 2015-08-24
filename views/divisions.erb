@@ -10,6 +10,6 @@
 
 <% @divisions.each() do |division| %>
 
-<li><%= division.name() %> <a href="/divisions/<%= division.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></li>
+<li><%= division.name() %> <a href="/division/<%= division.id() %>/edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
 
 <% end %>
